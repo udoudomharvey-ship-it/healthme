@@ -134,6 +134,56 @@
 
     @media (max-width:840px) { .why-grid{grid-template-columns:1fr;gap:2.5rem;} }
 
+    /* ── FACILITIES GALLERY ── */
+    #facilities { padding-block:var(--section-pad); background:var(--off-white); }
+    .facilities-intro { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; margin-bottom:3rem; }
+    .facilities-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.25rem; }
+    .fac-card {
+      background:var(--white); border:1.5px solid var(--grey-2);
+      border-radius:var(--radius-lg); overflow:hidden;
+      transition:border-color 0.3s, transform 0.3s var(--ease-out), box-shadow 0.3s;
+    }
+    .fac-card:hover { border-color:rgba(214,40,40,0.3); transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .fac-photo {
+      width:100%; aspect-ratio:4/3;
+      background:linear-gradient(135deg,#eef2f8 0%,#dde6f0 100%);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem;
+      position:relative; overflow:hidden;
+    }
+    .fac-photo::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(circle at 30% 30%, rgba(214,40,40,0.06) 0%, transparent 60%);
+    }
+    .fac-photo-icon {
+      width:56px; height:56px; border-radius:50%;
+      background:rgba(255,255,255,0.85); border:1.5px solid var(--grey-2);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:var(--shadow-sm);
+    }
+    .fac-photo-icon svg { width:24px; height:24px; color:var(--red); }
+    .fac-photo-label {
+      font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      color:var(--text-light); background:rgba(255,255,255,0.9);
+      padding:0.3rem 0.85rem; border-radius:99px; border:1px solid var(--grey-2);
+    }
+    .fac-photo-hint {
+      position:absolute; bottom:0.75rem; right:0.75rem;
+      font-size:0.62rem; color:var(--text-light); font-style:italic;
+      background:rgba(255,255,255,0.85); padding:0.2rem 0.5rem; border-radius:4px;
+    }
+    .fac-info { padding:1.1rem 1.25rem; }
+    .fac-title { font-size:0.95rem; font-weight:700; color:var(--text-dark); margin-bottom:0.35rem; }
+    .fac-desc  { font-size:0.82rem; color:var(--text-light); line-height:1.65; }
+
+    /* ── INFRASTRUCTURE STRIP ── */
+    .infra-strip { background:var(--navy); padding:2.5rem 0; }
+    .infra-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
+    .infra-item { display:flex; align-items:flex-start; gap:0.9rem; }
+    .infra-icon { width:40px; height:40px; border-radius:var(--radius-sm); background:rgba(214,40,40,0.2); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+    .infra-icon svg { width:18px; height:18px; color:var(--red); }
+    .infra-text strong { display:block; font-size:0.88rem; font-weight:700; color:var(--white); margin-bottom:0.2rem; }
+    .infra-text span { font-size:0.78rem; color:rgba(255,255,255,0.6); line-height:1.5; }
+
     /* ── SERVICES TEASER ── */
     #services-teaser { padding-block:var(--section-pad); }
     .services-intro { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; margin-bottom:3rem; }
@@ -361,6 +411,14 @@
             <div class="feature-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2.5"/></svg></div>
             <div class="feature-text"><strong>Fast, Accurate Diagnostics</strong><span>Same-day lab results so treatment can begin without delay</span></div>
           </div>
+          <div class="feature-item">
+            <div class="feature-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 2v3M14 4l-2 2M16 9h-3M14 14l-2-2M9 16v-3M4 14l2-2M2 9h3M4 4l2 2"/></svg></div>
+            <div class="feature-text"><strong>Uninterrupted Power Supply</strong><span>Diesel generator + solar backup — lights, equipment, and care never stop</span></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 2C6 5 4 7 4 10a5 5 0 0 0 10 0c0-3-2-5-5-8z"/></svg></div>
+            <div class="feature-text"><strong>Reliable Water Supply</strong><span>Functioning, clean water supply maintained on-site at all times</span></div>
+          </div>
         </div>
         <div style="margin-top:2rem;" class="reveal">
           <a href="about.html" class="btn btn-primary">Learn More About Us</a>
@@ -384,6 +442,123 @@
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- FACILITIES GALLERY -->
+<section id="facilities">
+  <div class="container">
+    <div class="facilities-intro">
+      <div>
+        <div class="section-tag reveal">Inside Our Hospital</div>
+        <h2 class="reveal" style="transition-delay:0.1s;">Our Facilities &amp; Equipment</h2>
+        <p class="reveal" style="transition-delay:0.2s;max-width:54ch;">A look inside HealthMed Hospital — purpose-built spaces and quality equipment designed for your safety and comfort.</p>
+      </div>
+      <a href="contact.html" class="btn btn-outline reveal" style="transition-delay:0.2s;">Book a Visit</a>
+    </div>
+    <div class="facilities-gallery stagger">
+
+      <div class="fac-card">
+        <div class="fac-photo">
+          <div class="fac-photo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg></div>
+          <div class="fac-photo-label">Emergency Unit</div>
+          <span class="fac-photo-hint">Photo coming soon</span>
+        </div>
+        <div class="fac-info">
+          <div class="fac-title">Emergency &amp; Resuscitation Bay</div>
+          <p class="fac-desc">Fully equipped emergency area with resuscitation equipment, oxygen supply, and 24/7 on-call physicians ready for any critical case.</p>
+        </div>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-photo">
+          <div class="fac-photo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="fac-photo-label">General Ward</div>
+          <span class="fac-photo-hint">Photo coming soon</span>
+        </div>
+        <div class="fac-info">
+          <div class="fac-title">Inpatient Ward</div>
+          <p class="fac-desc">Clean, comfortable inpatient ward with monitored beds, nursing care around the clock, and a calm environment that supports healing.</p>
+        </div>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-photo">
+          <div class="fac-photo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div class="fac-photo-label">Operating Theatre</div>
+          <span class="fac-photo-hint">Photo coming soon</span>
+        </div>
+        <div class="fac-info">
+          <div class="fac-title">Sterile Operating Theatre</div>
+          <p class="fac-desc">Modern, fully sterile surgical theatre equipped for minor and major procedures, with anaesthesia support and post-op recovery care.</p>
+        </div>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-photo">
+          <div class="fac-photo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div class="fac-photo-label">Vital Signs Monitor</div>
+          <span class="fac-photo-hint">Photo coming soon</span>
+        </div>
+        <div class="fac-info">
+          <div class="fac-title">Patient Monitoring Equipment</div>
+          <p class="fac-desc">Multi-parameter monitors tracking heart rate, blood pressure, SpO₂, and temperature — continuous care at every bed.</p>
+        </div>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-photo">
+          <div class="fac-photo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="5"/><path d="M7 13.5C3.6 14.8 2 17 2 19v2h20v-2c0-2-1.6-4.2-5-5.5"/></svg></div>
+          <div class="fac-photo-label">Infant Warmer</div>
+          <span class="fac-photo-hint">Photo coming soon</span>
+        </div>
+        <div class="fac-info">
+          <div class="fac-title">Neonatal Infant Warmer</div>
+          <p class="fac-desc">Radiant infant warmer providing safe, temperature-controlled care for newborns and premature babies immediately after delivery.</p>
+        </div>
+      </div>
+
+      <div class="fac-card">
+        <div class="fac-photo">
+          <div class="fac-photo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="fac-photo-label">Consulting Room</div>
+          <span class="fac-photo-hint">Photo coming soon</span>
+        </div>
+        <div class="fac-info">
+          <div class="fac-title">Doctor's Consulting Room</div>
+          <p class="fac-desc">Private, well-furnished consulting rooms where doctors give patients their full, undivided attention — confidential and comfortable.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE STRIP -->
+<div class="infra-strip">
+  <div class="container">
+    <div class="infra-grid stagger">
+      <div class="infra-item">
+        <div class="infra-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="infra-text"><strong>Uninterrupted Power Supply</strong><span>Diesel generator + solar hybrid — lights, equipment, and care never stop, even during grid failures.</span></div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2C8 7 5 10 5 14a7 7 0 0 0 14 0c0-4-3-7-7-12z"/></svg></div>
+        <div class="infra-text"><strong>Reliable Water Supply</strong><span>Clean, functional water supply on-site at all times — supporting hygiene, sterilisation, and patient care standards.</span></div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></div>
+        <div class="infra-text"><strong>Onsite Laboratory</strong><span>Full-service on-site diagnostic lab — malaria, typhoid, blood group, genotype, FBC, urinalysis &amp; more. Same-day results.</span></div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="infra-text"><strong>Modern Clinical Equipment</strong><span>Vital signs monitors, infant warmers, surgical instruments, and a sterile theatre — all maintained to the highest standards.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
 
 <!-- EMERGENCY STRIP -->
 <div class="emergency-strip">
